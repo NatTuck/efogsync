@@ -31,15 +31,16 @@
               <%= link("Logout", to: "/session", method: "delete") %></p>
             </div>
           <% else %>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+            <%= form_for @conn, "/session", [as: :login, class: "navbar-form navbar-right"], fn f -> %>
+              <div class="form-group">
+                <input type="text" name="email" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" placeholder="Password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">Sign in</button>
+              </form>
+            <% end %>
           <% end %>
         </div><!--/.navbar-collapse -->
       </div>

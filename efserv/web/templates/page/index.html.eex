@@ -5,19 +5,31 @@
   </div>
 
   <div class="col-lg-6">
-    <h3>Log In</h3>
-    <%= form_for @conn, "/session", [as: :login], fn f -> %>
+    <%= if @user do %>
+      <h3>Your Shares</h3>
+      <p>...</p>
+    <% else %>
+      <h3>Register</h3>
+      <%= form_for @new_user, "/users", fn f -> %>
       <div class="form-group">
-        <p>Email:<br>
-        <input type="text" name="email"></p>
+        <%= label f, :email, class: "control-label" %>
+        <%= text_input f, :email, class: "form-control" %>
+        <%= error_tag f, :email %>
       </div>
       <div class="form-group">
-        <p>Password:<br>
-        <input type="password" name="password"></p>
+        <%= label f, :password, class: "control-label" %>
+        <%= password_input f, :password, class: "form-control" %>
+        <%= error_tag f, :password %>
       </div>
       <div class="form-group">
-        <p><input type="submit"></p>
+        <%= label f, :password_again, class: "control-label" %>
+        <%= password_input f, :password_again, class: "form-control" %>
+        <%= error_tag f, :password_again %>
       </div>
+      <div>
+        <input type="submit" text="Register">
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
