@@ -1,0 +1,23 @@
+<h2>Show user</h2>
+
+<ul>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Fingerprint:</strong>
+    <%= @user.fingerprint %>
+  </li>
+
+  <li>
+    <strong>Keys:</strong>
+    <%= @user.keys %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: user_path(@conn, :edit, @user) %>
+<%= link "Back", to: user_path(@conn, :index) %>

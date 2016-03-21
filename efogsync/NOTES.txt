@@ -1,0 +1,4 @@
+cp --reflink=auto
+7z a -phunter2 -mhe=on archive.7z file.mpg
+7z l -phunter2 -slt archive.7z
+

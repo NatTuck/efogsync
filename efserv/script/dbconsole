@@ -1,0 +1,2 @@
+#!/bin/bash
+PGPASSWORD=Gaighao5 psql -U efserv efserv_dev 
